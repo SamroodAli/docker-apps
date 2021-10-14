@@ -2,8 +2,10 @@ const express = require('express')
 const redis = require('redis')
 
 const app = express()
-const client = redis.createClient()
-
+const client = redis.createClient({
+  host:'redis-server',
+  port:6379 //optional since it default, like mongo's 27017
+})
 
 client.on("error", function(error) {
   console.error(error);
